@@ -5,16 +5,15 @@ import EntryRight from "./Motions/EntryRight";
 import TypeWriter from "./Motions/TypeWriting";
 import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
-import { ReactNode } from "react";
 
 export default function Home() {
   return (
-    <div className=" transition sm:pb-2 md:p-5 ease-linear w-full h-full  ">
+    <div className="  sm:pb-2 md:p-5 ease-linear w-full h-full  ">
       <section id="home">
         <div className="flex md:flex-row  sm:flex-col-reverse md:justify-center md:items-center md:gap-x-10 md:p-10">
-          <div className="md:w-[800px] md:mt-24  sm:mt-5 sm:items-center  md:h-[500px] ">
+          <div className="md:w-[800px] md:mt-24 justify-center sm:mt-5 sm:items-center  md:h-[500px] ">
             <div>
-              <TypeWriter text=" Welcome to my Portfolio 😊 " />
+              <TypeWriter text=" Welcome to my Portfolio 👋" />
             </div>
             <div className="md:mt-10 sm:mt-5">
               <TypeWriter text=" Hi, I'm Praveen Thanikachalam, currently a student and a freelance software engineer. I have a passion for coding and building robots. I find joy in exploring the realms of technology and constantly expanding my knowledge in the field." />
@@ -22,7 +21,6 @@ export default function Home() {
           </div>
 
           <div className="  md:w-[500px] md:mt-10 md:h-[500px] ">
-            
             <EntryRight>
               <Image
                 className=" rounded-lg self-end "
@@ -30,7 +28,7 @@ export default function Home() {
                 alt={"Praveen"}
               />
             </EntryRight>
-            <div className="  mb-1 ml-4 md:mt-4 sm:top-80 md:top-[500px]  absolute ">
+            <div className="  mb-1 ml-4 md:mt-4  sm:top-64 md:top-[450px]  absolute ">
               <EntryRight duration={2}>
                 <h1 className="text-6xl    font-sans text-orange-100">Im,</h1>{" "}
                 <h1 className="text-6xl mb-1 font-sans text-orange-100">
@@ -50,7 +48,7 @@ export default function Home() {
       <EntryTop>
         <div className="divider">Skills</div>
       </EntryTop>
-      <section id="skills">
+      <section className="sm:p-1 md:p-0" id="skills">
         <EntryBottom>
           <div className="mockup-code">
             <pre data-prefix="$">

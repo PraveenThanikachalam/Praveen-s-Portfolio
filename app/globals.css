@@ -12,4 +12,5 @@ html {
 body {
   background: #18181b;
   overflow-x: hidden;
+  overflow-y: scroll;
 }

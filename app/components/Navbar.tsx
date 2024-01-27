@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface linkProps {
   name: string;
@@ -9,20 +8,39 @@ interface linkProps {
 }
 
 const links: linkProps[] = [
-  { name: "Home", href:"/" },
+  { name: "Home", href: "/" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
   let [activeTab, setActiveTab] = useState(links[0].href);
 
-  console.log(pathname);
+  let [colorChange, setColorChange] = useState(false);
+
+  useEffect(() => {
+    const changeNavbarColor = () => {
+      if (window.scrollY >= 8) {
+        setColorChange(true);
+      } else {
+        setColorChange(false);
+      }
+    };
+
+    window.addEventListener("scroll", changeNavbarColor);
+
+    return () => {
+      window.removeEventListener("scroll", changeNavbarColor);
+    };
+  }, []);
 
   return (
-    <div className="flex justify-center items-center p-4 mt-1 space-x-1">
+    <motion.div
+      className={`${
+        colorChange ? "transition ease-in duration-0.5 bg-black/75" : "bg-none"
+      } flex justify-center w-full absolute items-center p-4 space-x-1`}
+    >
       {links.map((link) => (
         <Link
           key={link.href}
@@ -46,6 +64,6 @@ export default function Navbar() {
           {link.name}
         </Link>
       ))}
-    </div>
+    </motion.div>
   );
 }
