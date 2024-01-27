@@ -9,7 +9,7 @@ interface linkProps {
 }
 
 const links: linkProps[] = [
-  { name: "Home", href:"#home" },
+  { name: "Home", href:"/" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "" },
   { name: "Contact", href: "#contact" },
