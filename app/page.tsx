@@ -7,7 +7,7 @@ import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
 import { ReactNode } from "react";
 
-export default function Home({ children }: { children: ReactNode }) {
+export default function Home() {
   return (
     <div className=" transition sm:pb-2 md:p-5 ease-linear w-full h-full  ">
       <section id="home">
