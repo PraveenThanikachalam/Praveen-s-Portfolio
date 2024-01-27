@@ -3,13 +3,12 @@ import Image from "next/image";
 import profileImg from "@/public/my_Self.jpg";
 import EntryRight from "./Motions/EntryRight";
 import TypeWriter from "./Motions/TypeWriting";
-import { motion } from "framer-motion";
 import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
 
-export default function Home({ children }: { children: React.ReactNode }) {
+export default function Home({ children }: { children: React.ReactElement }) {
   return (
-    <motion.div className=" transition sm:pb-2 md:p-5 ease-linear w-full h-full  ">
+    <div className=" transition sm:pb-2 md:p-5 ease-linear w-full h-full  ">
       <section id="home">
         <div className="flex md:flex-row  sm:flex-col-reverse md:justify-center md:items-center md:gap-x-10 md:p-10">
           <div className="md:w-[800px] md:mt-24  sm:mt-5 sm:items-center  md:h-[500px] ">
@@ -218,6 +217,6 @@ export default function Home({ children }: { children: React.ReactNode }) {
           </svg>
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }
