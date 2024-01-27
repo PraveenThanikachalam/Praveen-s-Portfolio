@@ -28,7 +28,7 @@ export default function Home() {
                 alt={"Praveen"}
               />
             </EntryRight>
-            <div className="  mb-1 ml-4 md:mt-4  sm:top-64 md:top-[450px]  absolute ">
+            <div className="  mb-1 ml-4 md:mt-4 sm:top-52 se:top-64 md:top-[450px]  absolute ">
               <EntryRight duration={2}>
                 <h1 className="text-6xl    font-sans text-orange-100">Im,</h1>{" "}
                 <h1 className="text-6xl mb-1 font-sans text-orange-100">
