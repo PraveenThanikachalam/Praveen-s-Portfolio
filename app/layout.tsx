@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import EntryTop from "./Motions/EntryTop";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,8 @@ export default function RootLayout({
         >
           <Navbar />
         </motion.div>
+        <Toaster position="top-right" reverseOrder={false} />
+
         {children}
       </body>
     </html>

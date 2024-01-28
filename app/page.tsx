@@ -7,7 +7,8 @@ import TypeWriter from "./Motions/TypeWriting";
 import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
+import { useEffect, useState } from "react";
 import sendMail from "./_actions";
 import { redirect } from "next/navigation";
 
@@ -17,21 +18,32 @@ export default function Home() {
     enter: { opacity: 1, y: 0, x: 0 },
   };
   const [error, setError] = useState<string>("");
-
   const onSubmit = async (data: FormData) => {
     // const { error } = await sendMail(data);
     const res = await sendMail(data);
+
     if (res?.statusCode === 403) {
       setError("Try again later");
-    }
-    else{
-      redirect("/#home")
+    } else {
+      toast.success("Message sent successfully.", {
+        style: {
+          padding: "16px",
+          color: "#fb923c",
+          background: "black",
+        },
+        iconTheme: {
+          primary: "#fb923c",
+          secondary: "#111827",
+        },
+      }); // setRes("");
+      redirect("/#home");
     }
   };
 
   return (
     <div className="  sm:pb-2 md:p-5 ease-linear w-full h-full  ">
       <section className="" id="home">
+
         <div className=" flex md:flex-row  sm:flex-col-reverse md:justify-center md:items-center md:gap-x-10 md:p-10">
           <div className="md:w-[800px]  md:mt-24 justify-center sm:mt-5 sm:items-center  md:h-[500px] ">
             <div>
@@ -198,10 +210,10 @@ export default function Home() {
           {" "}
           <p className="font-mono text-red-500">{error}</p>
           <input
-            type="text"
+            type="email"
             name="Email"
             required
-            placeholder="Email"
+            placeholder="Your Email"
             className="input input-bordered input-ghost focus:border-transparent focus:ring-0 input-lg sm:input-md md:input-lg input-success w-full  "
           />
           <input
@@ -215,6 +227,8 @@ export default function Home() {
             placeholder="Message"
             name="Message"
             required
+            minLength={50}
+            
             className="textarea textarea-error input-ghost  text-[16px] md:textarea-lg sm:textarea-md w-full "
           ></textarea>
           <button className="btn self-center btn-active">Submit</button>
