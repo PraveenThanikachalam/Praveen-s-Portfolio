@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function TypeWriter({text,duration}:{text?:string,duration?:number}) {
+function TypeWriter({ text, duration }: { text?: string; duration?: number }) {
   const content = text?.split(" ") || "Welcome".split("");
 
   return (
@@ -11,9 +11,8 @@ function TypeWriter({text,duration}:{text?:string,duration?:number}) {
           animate={{ opacity: 1 }}
           transition={{
             duration: duration || 2,
-            delay: i / 10
+            delay: i / 10,
           }}
-        
           key={i}
         >
           {el}{" "}

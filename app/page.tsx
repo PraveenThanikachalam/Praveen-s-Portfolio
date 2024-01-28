@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client";
 import Image from "next/image";
 import profileImg from "@/public/my_Self.jpg";
@@ -7,7 +8,8 @@ import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { sendMail } from "./_actions";
+import sendMail from "./_actions";
+import { redirect } from "next/navigation";
 
 export default function Home() {
   const variants = {
@@ -19,7 +21,12 @@ export default function Home() {
   const onSubmit = async (data: FormData) => {
     // const { error } = await sendMail(data);
     const res = await sendMail(data);
-    console.log(res);
+    if (res?.statusCode === 403) {
+      setError("Try again later");
+    }
+    else{
+      redirect("/")
+    }
   };
 
   return (
@@ -30,7 +37,7 @@ export default function Home() {
             <div>
               <TypeWriter text=" Welcome to my Portfolio 👋" />
             </div>
-            <div className="md:mt-10 sm:mt-5">
+            <div className="md:mt-10 text- sm:mt-5">
               <TypeWriter text=" Hi, I'm Praveen Thanikachalam, currently a student and a freelance software engineer. I have a passion for coding and building robots. I find joy in exploring the realms of technology and constantly expanding my knowledge in the field." />
             </div>
           </div>
@@ -188,19 +195,21 @@ export default function Home() {
           className="flex flex-col sm:w-72 md:gap-y-10 md:w-[500px] sm:m-32 md:mt-36 justify-center gap-3 items-start"
           action={onSubmit}
         >
+          {" "}
+          <p className="font-mono text-red-500">{error}</p>
           <input
             type="text"
             name="Email"
             required
             placeholder="Email"
-            className="input input-ghost focus:border-transparent focus:ring-0 input-lg sm:input-md md:input-lg input-success w-full  "
+            className="input input-bordered input-ghost focus:border-transparent focus:ring-0 input-lg sm:input-md md:input-lg input-success w-full  "
           />
           <input
             type="text"
             required
             name="Subject"
             placeholder="Subject"
-            className="input input-ghost  md:w-full focus:border-transparent focus:ring-0 sm:input-md md:input-lg input-lg input-warning w-full  "
+            className="input input-bordered input-ghost  md:w-full focus:border-transparent focus:ring-0 sm:input-md md:input-lg input-lg input-warning w-full  "
           />
           <textarea
             placeholder="Message"
@@ -208,7 +217,6 @@ export default function Home() {
             required
             className="textarea textarea-error input-ghost  text-[16px] md:textarea-lg sm:textarea-md w-full "
           ></textarea>
-
           <button className="btn self-center btn-active">Submit</button>
         </form>
         <div className="text-lg sm:mb-5 md:mb-0 text-orange-100 flex gap-5 justify-center text-center ">
