@@ -17,7 +17,7 @@ export default async function sendMail(
   const Message = formdata.get("Message");
   const { data, error } = await resend.emails.send({
     from: "Acme <onboarding@resend.dev>",
-    to: ["praveenthanikachalam408@gmail.com"],
+    to: Email,
     subject: "From Visitors",
     react: EmailTemplate({ email: Email, subject: Subject, message: Message }),
   });
