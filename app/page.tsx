@@ -25,7 +25,7 @@ export default function Home() {
       setError("Try again later");
     }
     else{
-      redirect("/")
+      redirect("/#home")
     }
   };
 
