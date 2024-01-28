@@ -193,14 +193,14 @@ export default function Home() {
             name="Email"
             required
             placeholder="Email"
-            className="input input-ghost focus:border-transparent focus:ring-0 input-lg sm:input-md input-success w-full  "
+            className="input input-ghost focus:border-transparent focus:ring-0 input-lg sm:input-md md:input-lg input-success w-full  "
           />
           <input
             type="text"
             required
             name="Subject"
             placeholder="Subject"
-            className="input input-ghost  md:w-full focus:border-transparent focus:ring-0 sm:input-md input-lg input-warning w-full  "
+            className="input input-ghost  md:w-full focus:border-transparent focus:ring-0 sm:input-md md:input-lg input-lg input-warning w-full  "
           />
           <textarea
             placeholder="Message"
