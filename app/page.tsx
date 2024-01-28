@@ -204,7 +204,7 @@ export default function Home() {
         id="contact"
       >
         <form
-          className="flex flex-col sm:w-72 md:gap-y-10 md:w-[500px] sm:m-32 md:mt-36 justify-center gap-3 items-start"
+          className="flex flex-col sm:w-80 md:gap-y-10 md:w-[500px] sm:m-32 md:mt-36 justify-center gap-6 items-start"
           action={onSubmit}
         >
           {" "}
