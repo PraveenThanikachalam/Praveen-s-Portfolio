@@ -7,10 +7,11 @@ import TypeWriter from "./Motions/TypeWriting";
 import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
 import { motion } from "framer-motion";
-import { Toaster, toast } from "react-hot-toast";
-import { useEffect, useState } from "react";
+import {  toast } from "react-hot-toast";
+import { useState } from "react";
 import sendMail from "./_actions";
 import { redirect } from "next/navigation";
+import logo from "@/public/Logo.png";
 
 export default function Home() {
   const variants = {
@@ -35,7 +36,7 @@ export default function Home() {
           primary: "#fb923c",
           secondary: "#111827",
         },
-      }); // setRes("");
+      });
       redirect("/#home");
     }
   };
@@ -43,13 +44,12 @@ export default function Home() {
   return (
     <div className="  sm:pb-2 md:p-5 ease-linear w-full h-full  ">
       <section className="" id="home">
-
         <div className=" flex md:flex-row  sm:flex-col-reverse md:justify-center md:items-center md:gap-x-10 md:p-10">
           <div className="md:w-[800px]  md:mt-24 justify-center sm:mt-5 sm:items-center  md:h-[500px] ">
             <div>
               <TypeWriter text=" Welcome to my Portfolio 👋" />
             </div>
-            <div className="md:mt-10 text- sm:mt-5">
+            <div className="md:mt-10  sm:mt-5">
               <TypeWriter text=" Hi, I'm Praveen Thanikachalam, currently a student and a freelance software engineer. I have a passion for coding and building robots. I find joy in exploring the realms of technology and constantly expanding my knowledge in the field." />
             </div>
           </div>
@@ -57,7 +57,6 @@ export default function Home() {
           <div className="  md:w-[500px] md:mt-10 md:h-[500px] ">
             <EntryRight>
               <Image
-                priority
                 placeholder="blur"
                 className="border-dashed border-4 md:p-1 rounded-lg self-end "
                 src={profileImg}
@@ -66,10 +65,8 @@ export default function Home() {
             </EntryRight>
             <div className="  mb-1 ml-4 md:mt-4 sm:top-52 se:top-64 md:top-[450px]  absolute ">
               <EntryRight duration={2}>
-                <h1 className="text-6xl    font-sans text-orange-100">Im,</h1>{" "}
-                <h1 className="text-6xl mb-1 font-sans text-orange-100">
-                  Praveen
-                </h1>
+                <h1 className="text-6xl     text-orange-100">Im,</h1>{" "}
+                <h1 className="text-6xl mb-1  text-orange-100">Praveen</h1>
               </EntryRight>
               <EntryRight duration={2.5}>
                 <span className="text-lg text-orange-100  ml-1 font-semibold">
@@ -81,6 +78,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <EntryTop>
         <div className="divider">Skills</div>
       </EntryTop>
@@ -193,6 +191,80 @@ export default function Home() {
         </EntryBottom>
       </section>
       <EntryTop>
+        <div className="divider">Projects</div>
+      </EntryTop>
+
+      <motion.section
+        id="projects"
+        variants={variants}
+        initial={variants.hidden}
+        whileInView={variants.enter}
+        className="md:flex md:justify-center gap-x-3 md:items-center sm:p-5 sm:pt-10 md:p-36 sm:grid sm:grid-cols-2 flex-col md:gap-10 md:flex-row"
+        transition={{ duration: 0.5 }}
+      >
+        {" "}
+        <div className=" md:w-[500px] flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <p className="title ">MMD APP</p>
+              <p className="font-mono  text-gray-700">An app for film makers</p>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">BACK</p>
+              <p>Leave Me</p>
+            </div>
+          </div>
+        </div>
+        <div className=" md:w-[500px] flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <p className="title">MMD APP</p>
+              <p className="font-mono text-gray-700">An app for film makers</p>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">BACK</p>
+              <p>Leave Me</p>
+            </div>
+          </div>
+        </div>
+        <div className="md:w-[500px] flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <p className="title">MMD APP</p>
+              <p className="font-mono text-gray-700">An app for film makers</p>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">BACK</p>
+              <p>Leave Me</p>
+            </div>
+          </div>
+        </div>
+        <div className="md:w-[500px] flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <p className="title">MMD APP</p>
+              <p className="font-mono text-gray-700">An app for film makers</p>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">BACK</p>
+              <p>Leave Me</p>
+            </div>
+          </div>
+        </div>
+        <div className="md:w-[500px] flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <p className="title">JOKE APP</p>
+              <p className="font-mono text-gray-700">An app for film makers</p>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">BACK</p>
+              <p>Leave Me</p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+      <EntryTop>
         <div className="divider">Contact</div>
       </EntryTop>
       <motion.section
@@ -228,7 +300,6 @@ export default function Home() {
             name="Message"
             required
             minLength={50}
-            
             className="textarea textarea-error input-ghost  text-[16px] md:textarea-lg sm:textarea-md w-full "
           ></textarea>
           <button className="btn self-center btn-active">Submit</button>

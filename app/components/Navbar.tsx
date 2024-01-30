@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface linkProps {
   name: string;
@@ -10,7 +11,7 @@ interface linkProps {
 const links: linkProps[] = [
   { name: "Home", href: "#home" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "" },
+  { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -18,7 +19,7 @@ export default function Navbar() {
   let [activeTab, setActiveTab] = useState(links[0].href);
 
   let [colorChange, setColorChange] = useState(false);
-
+  const pathname = usePathname();
   useEffect(() => {
     const changeNavbarColor = () => {
       if (window.scrollY >= 8) {
