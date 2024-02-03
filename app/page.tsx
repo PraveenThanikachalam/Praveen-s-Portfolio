@@ -9,20 +9,26 @@ import EntryBottom from "./Motions/EntryBottom";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
-import sendMail from "./_actions";
+import { sendMail, sendmail2 } from "./_actions";
 import { redirect } from "next/navigation";
 import { Github } from "lucide-react";
+import mmd_bg from "@/public/mmd_bg.svg";
+import jokeapp_bg from "@/public/jokeapp_bg.svg";
+import resume from "@/public/resume.png";
+import { usePathname } from "next/navigation";
 
 export default function Home() {
+  const pathname = usePathname();
+  console.log(pathname);
+
   const variants = {
     hidden: { opacity: 0, y: 200, x: 0 },
     enter: { opacity: 1, y: 0, x: 0 },
   };
+
   const [error, setError] = useState<string>("");
   const onSubmit = async (data: FormData) => {
-    // const { error } = await sendMail(data);
     const res = await sendMail(data);
-
     if (res?.statusCode === 403) {
       setError("Try again later");
     } else {
@@ -37,13 +43,70 @@ export default function Home() {
           secondary: "#111827",
         },
       });
-      redirect("/#home");
+      redirect("/");
     }
   };
-
+  const onSubmitres = async (data: FormData) => {
+    const res = await sendmail2(data);
+    if (res?.statusCode === 403) {
+      setError("Try again later");
+    } else {
+      toast.success("Redirecting to resume.pdf", {
+        style: {
+          padding: "16px",
+          color: "#fb923c",
+          background: "black",
+        },
+        iconTheme: {
+          primary: "#fb923c",
+          secondary: "#111827",
+        },
+      });
+      redirect(
+        "https://drive.google.com/file/d/1Ctd2EZM0k2W-RFpuDSway4qo1KJOsjjM/view?usp=sharing"
+      );
+    }
+  };
   return (
     <div className="  sm:pb-2 md:p-5 ease-linear w-full h-full  ">
       <section className="" id="home">
+        <dialog id="my_modal_3" className=" modal">
+          <div className=" modal-box">
+            <form method="dialog">
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+              </button>
+            </form>
+            <div className="flex flex-col ">
+              <div className="w-full">
+                <h3 className="font-bold text-lg">Hello Folks!</h3>
+                <p className="py-1">Download my resume here</p>
+
+                <div className="sm:p-1  md:p-10 blur-sm">
+                  <Image src={resume} alt="resume"></Image>
+                </div>
+                <form
+                  className="mt-3 flex gap-y-2 flex-col"
+                  action={onSubmitres}
+                >
+                  <input
+                    type="email"
+                    name="Email"
+                    required
+                    placeholder="Your Email"
+                    className="input input-bordered input-ghost focus:border-transparent focus:ring-0 input-md   input-success w-full  "
+                  />
+                  <button type="submit" className="btn w-full btn-outline ">
+                    {" "}
+                    <a href="https://drive.google.com/file/d/1uVatEaI2ia4BM4teT__0pWOLJyRMq9M7/view?usp=drive_link">
+                      Submit{" "}
+                    </a>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </dialog>
         <div className=" flex md:flex-row  sm:flex-col-reverse md:justify-center md:items-center md:gap-x-10 md:p-10">
           <div className="md:w-[800px]  md:mt-24 justify-center sm:mt-5 sm:items-center  md:h-[500px] ">
             <div>
@@ -52,6 +115,18 @@ export default function Home() {
             <div className="md:mt-10  sm:mt-5">
               <TypeWriter text=" Hi, I'm Praveen Thanikachalam, currently a student and a freelance software engineer. I have a passion for coding and building robots. I find joy in exploring the realms of technology and constantly expanding my knowledge in the field." />
             </div>
+            <EntryRight>
+              <div
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
+                className="ml-0 right-7 md:w-full pr-4 "
+              >
+                <button className="btn   m-2 mt-4 w-full glass">
+                  My Resume//{" "}
+                </button>
+              </div>
+            </EntryRight>
           </div>
 
           <div className="  md:w-[500px] md:mt-10 md:h-[500px] ">
@@ -104,7 +179,7 @@ export default function Home() {
 
           <div className="mockup-code">
             <pre data-prefix="$">
-              <code className="underline underline-offset-4">Frontend</code>
+              <code className="underline underline-offset-4"> </code>
             </pre>
             <pre data-prefix=">" className="mt-1 text-orange-400">
               <code>HTML</code>
@@ -199,20 +274,28 @@ export default function Home() {
         variants={variants}
         initial={variants.hidden}
         whileInView={variants.enter}
-        className="lg:flex p-5 lg:justify-center gap-x-3 md:items-center  sm:pt-10 grid grid-cols-2 flex-col lg:gap-10 md:flex-row"
+        className="lg:flex p-5 lg:justify-center gap-3 md:items-center  sm:pt-10 grid grid-cols-2 flex-col lg:gap-10 md:flex-row"
         transition={{ duration: 0.5 }}
       >
         {" "}
         <div className=" lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
+              <Image
+                src={mmd_bg}
+                className=" brightness-75 absolute rounded-[1rem] -z-10 object-cover w-full h-full"
+                alt=""
+              />
               <p className="title ">MMD APP</p>
-              <p className="font-mono  text-gray-700">An app for film makers</p>
+              <p className="font-mono  text-orange-100">
+                An app for film makers
+              </p>
             </div>
             <div className="flex flex-col justify-center items-center gap-3 flip-card-back">
               <p className=" title">Tech stack</p>
               <p className="text-zinc-100">
-                Next_14, Typescript, NextAuth, Shadcn, Tailwindcss, Prisma, Mongodb
+                Next_14, Typescript, NextAuth, Shadcn, Tailwindcss, Prisma,
+                Mongodb
               </p>
               <a className="bg-black p-2 rounded-lg" href="github.com">
                 {" "}
@@ -224,22 +307,35 @@ export default function Home() {
         <div className=" lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <p className="title">MMD APP</p>
-              <p className="font-mono text-gray-700">An app for film makers</p>
-            </div>
-            <div className="flip-card-back">
-              <p className="title">Tech stack</p>
-              <p>
-                Next_14 Typescript NextAuth Shadcn Tailwindcss Prisma Mongodb
+              <Image
+                src={jokeapp_bg}
+                className=" brightness-75 absolute rounded-[1rem] -z-10 object-cover w-full h-full"
+                alt=""
+              />
+              <p className="title">JOKE APP</p>
+              <p className="font-mono text-orange-100">
+                Generate joke in selected category
               </p>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-3 flip-card-back">
+              <p className="title">Tech stack</p>
+              <p className="text-zinc-100">
+                EJS, Javascript, CSS, Bootstrap, JokeApi
+              </p>
+              <a className=" bg-black p-2 rounded-lg" href="github.com">
+                {" "}
+                <Github />
+              </a>
             </div>
           </div>
         </div>
-        <div className="lg:w-[500px] flip-card">
+        {/* <div className="lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <p className="title">MMD APP</p>
-              <p className="font-mono text-gray-700">An app for film makers</p>
+              <p className="font-mono text-orange-100">
+                An app for film makers
+              </p>
             </div>
             <div className="flip-card-back">
               <p className="title">BACK</p>
@@ -270,7 +366,7 @@ export default function Home() {
               <p>Leave Me</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </motion.section>
       <EntryTop>
         <div className="divider">Contact</div>
@@ -310,7 +406,12 @@ export default function Home() {
             minLength={50}
             className="textarea textarea-error input-ghost  text-[16px] md:textarea-lg sm:textarea-md w-full "
           ></textarea>
-          <motion.button whileTap={{scale:0.85}} className="btn self-center btn-active">Submit</motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="btn self-center btn-active"
+          >
+            Submit
+          </motion.button>
         </form>
         <div className="text-lg sm:mb-5 md:mb-0 text-orange-100 flex gap-5 justify-center text-center ">
           <a href="https://www.instagram.com/_.prxveen._01?igsh=bXN0cDFnNzd3MTI2">
