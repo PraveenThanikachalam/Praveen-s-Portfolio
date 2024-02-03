@@ -5,6 +5,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { EmailTemplate } from "@/app/components/emailTemplate";
 import { Resend } from "resend";
+import { EmailTemplate2 } from "./components/emailTemplate2";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendMail(
@@ -41,7 +42,7 @@ export async function sendmail2(
     from: "Acme <onboarding@resend.dev>",
     to: ["praveenthanikachalam408@gmail.com"],
     subject: "From Visitors",
-    react: EmailTemplate({ email: Email, subject: Subject, message: Message }),
+    react: EmailTemplate2({ email: Email, subject: Subject, message: Message }),
   });
 
   if (error) {
