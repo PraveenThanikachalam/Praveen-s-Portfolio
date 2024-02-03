@@ -19,7 +19,6 @@ export default function Navbar() {
   let [activeTab, setActiveTab] = useState(links[0].href);
 
   let [colorChange, setColorChange] = useState(false);
-  const pathname = usePathname();
   useEffect(() => {
     const changeNavbarColor = () => {
       if (window.scrollY >= 8) {
@@ -40,7 +39,7 @@ export default function Navbar() {
     <motion.div
       className={`${
         colorChange ? "transition ease-in duration-0.5 bg-black/75" : "bg-none"
-      } flex justify-center w-full absolute items-center p-4 space-x-1`}
+      } flex justify-center  p-4 overflow-scroll  w-full absolute items-center space-x-1`}
     >
       {links.map((link) => (
         <Link

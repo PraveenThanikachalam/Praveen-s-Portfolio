@@ -122,7 +122,7 @@ export default function Home() {
                 }
                 className="ml-0 right-7 md:w-full pr-4 "
               >
-                <button className="btn   m-2 mt-4 w-full glass">
+                <button className="btn  text-gray-300 m-2 mt-4 w-full glass">
                   My Resume//{" "}
                 </button>
               </div>
@@ -131,33 +131,30 @@ export default function Home() {
 
           <div className="  md:w-[500px] md:mt-10 md:h-[500px] ">
             <EntryRight>
-              <Image
-                placeholder="blur"
-                className="border-dashed border-4 md:p-1 rounded-lg self-end "
-                src={profileImg}
-                alt={"Praveen"}
-              />
+              <div className="relative">
+                <Image
+                  placeholder="blur"
+                  className="border-dashed border-4 md:p-1 rounded-lg self-end "
+                  src={profileImg}
+                  alt={"Praveen"}
+                />
+                <div className="bottom-left md:relative md:mt-10 lg:absolute sm:absolute bottom-[8px] left-[16px]">
+                  <span className="text-6xl  text-orange-100">Im,</span>
+                  <br />
+                  <span className="text-6xl  text-orange-100"> Praveen</span>
+                  <br />
+                  <span className="text-2xl  text-orange-100"> Robotics and Software DEV</span>
+                </div>
+              </div>
             </EntryRight>
-            <div className="  mb-1 ml-4 md:mt-4 sm:top-52 se:top-64 md:top-[450px]  absolute ">
-              <EntryRight duration={2}>
-                <h1 className="text-6xl     text-orange-100">Im,</h1>{" "}
-                <h1 className="text-6xl mb-1  text-orange-100">Praveen</h1>
-              </EntryRight>
-              <EntryRight duration={2.5}>
-                <span className="text-lg text-orange-100  ml-1 font-semibold">
-                  {" "}
-                  Robotics and Software DEV
-                </span>
-              </EntryRight>
-            </div>
           </div>
         </div>
       </section>
 
       <EntryTop>
-        <div className="divider">Skills</div>
+        <div className="  text-orange-100 divider">Skills</div>
       </EntryTop>
-      <section className="sm:p-1p-10 md:p-0" id="skills">
+      <section className="sm:p-1p-10 md:p-0 overflow-scroll" id="skills">
         <EntryBottom>
           <div className="mockup-code">
             <pre data-prefix="$">
@@ -266,7 +263,7 @@ export default function Home() {
         </EntryBottom>
       </section>
       <EntryTop>
-        <div className="divider">Projects</div>
+        <div className=" text-orange-100 divider">Projects</div>
       </EntryTop>
 
       <motion.section
@@ -291,9 +288,9 @@ export default function Home() {
                 An app for film makers
               </p>
             </div>
-            <div className="flex flex-col justify-center items-center gap-3 flip-card-back">
-              <p className=" title">Tech stack</p>
-              <p className="text-zinc-100">
+            <div className="flex flex-col sm:p-2 justify-center items-center gap-3 flip-card-back">
+              <p className="  title">Tech stack</p>
+              <p className="  overflow-scroll text-zinc-100">
                 Next_14, Typescript, NextAuth, Shadcn, Tailwindcss, Prisma,
                 Mongodb
               </p>
@@ -317,9 +314,9 @@ export default function Home() {
                 Generate joke in selected category
               </p>
             </div>
-            <div className="flex flex-col justify-center items-center gap-3 flip-card-back">
+            <div className="flex flex-col sm:p-2 justify-center items-center gap-3 flip-card-back">
               <p className="title">Tech stack</p>
-              <p className="text-zinc-100">
+              <p className="  overflow-scroll text-zinc-100">
                 EJS, Javascript, CSS, Bootstrap, JokeApi
               </p>
               <a className=" bg-black p-2 rounded-lg" href="github.com">
@@ -369,14 +366,14 @@ export default function Home() {
         </div> */}
       </motion.section>
       <EntryTop>
-        <div className="divider">Contact</div>
+        <div className="text-orange-100 divider">Contact</div>
       </EntryTop>
       <motion.section
         variants={variants}
         initial={variants.hidden}
         whileInView={variants.enter}
         transition={{ duration: 0.5 }}
-        className=" flex flex-col items-center"
+        className=" flex flex-col overflow-scroll items-center"
         id="contact"
       >
         <form
