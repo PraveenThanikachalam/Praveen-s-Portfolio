@@ -17,7 +17,7 @@ const config: Config = {
     screens: {
       sm: "100px",
       // => @media (min-width: 640px) { ... }
-      se : "400px",
+      se : "300px",
 
       md: "850px",
       // => @media (min-width: 768px) { ... }

@@ -373,7 +373,7 @@ export default function Home() {
         initial={variants.hidden}
         whileInView={variants.enter}
         transition={{ duration: 0.5 }}
-        className=" flex flex-col overflow-scroll items-center"
+        className=" flex flex-col  items-center"
         id="contact"
       >
         <form
