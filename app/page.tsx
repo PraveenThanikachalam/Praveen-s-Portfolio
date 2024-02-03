@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 "use client";
 import Image from "next/image";
 import profileImg from "@/public/my_Self.jpg";
@@ -7,11 +7,11 @@ import TypeWriter from "./Motions/TypeWriting";
 import EntryTop from "./Motions/EntryTop";
 import EntryBottom from "./Motions/EntryBottom";
 import { motion } from "framer-motion";
-import {  toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useState } from "react";
 import sendMail from "./_actions";
 import { redirect } from "next/navigation";
-import logo from "@/public/Logo.png";
+import { Github } from "lucide-react";
 
 export default function Home() {
   const variants = {
@@ -199,23 +199,43 @@ export default function Home() {
         variants={variants}
         initial={variants.hidden}
         whileInView={variants.enter}
-        className="md:flex md:justify-center gap-x-3 md:items-center sm:p-5 sm:pt-10 md:p-36 sm:grid sm:grid-cols-2 flex-col md:gap-10 md:flex-row"
+        className="lg:flex p-5 lg:justify-center gap-x-3 md:items-center  sm:pt-10 grid grid-cols-2 flex-col lg:gap-10 md:flex-row"
         transition={{ duration: 0.5 }}
       >
         {" "}
-        <div className=" md:w-[500px] flip-card">
+        <div className=" lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <p className="title ">MMD APP</p>
               <p className="font-mono  text-gray-700">An app for film makers</p>
             </div>
-            <div className="flip-card-back">
-              <p className="title">BACK</p>
-              <p>Leave Me</p>
+            <div className="flex flex-col justify-center items-center gap-3 flip-card-back">
+              <p className=" title">Tech stack</p>
+              <p className="text-zinc-100">
+                Next_14, Typescript, NextAuth, Shadcn, Tailwindcss, Prisma, Mongodb
+              </p>
+              <a className="bg-black p-2 rounded-lg" href="github.com">
+                {" "}
+                <Github />
+              </a>
             </div>
           </div>
         </div>
-        <div className=" md:w-[500px] flip-card">
+        <div className=" lg:w-[500px] flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <p className="title">MMD APP</p>
+              <p className="font-mono text-gray-700">An app for film makers</p>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">Tech stack</p>
+              <p>
+                Next_14 Typescript NextAuth Shadcn Tailwindcss Prisma Mongodb
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <p className="title">MMD APP</p>
@@ -227,7 +247,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:w-[500px] flip-card">
+        <div className="lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <p className="title">MMD APP</p>
@@ -239,19 +259,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:w-[500px] flip-card">
-          <div className="flip-card-inner">
-            <div className="flip-card-front">
-              <p className="title">MMD APP</p>
-              <p className="font-mono text-gray-700">An app for film makers</p>
-            </div>
-            <div className="flip-card-back">
-              <p className="title">BACK</p>
-              <p>Leave Me</p>
-            </div>
-          </div>
-        </div>
-        <div className="md:w-[500px] flip-card">
+        <div className="lg:w-[500px] flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <p className="title">JOKE APP</p>
