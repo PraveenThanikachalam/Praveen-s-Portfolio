@@ -310,7 +310,7 @@ export default function Home() {
             minLength={50}
             className="textarea textarea-error input-ghost  text-[16px] md:textarea-lg sm:textarea-md w-full "
           ></textarea>
-          <button className="btn self-center btn-active">Submit</button>
+          <motion.button whileTap={{scale:0.85}} className="btn self-center btn-active">Submit</motion.button>
         </form>
         <div className="text-lg sm:mb-5 md:mb-0 text-orange-100 flex gap-5 justify-center text-center ">
           <a href="https://www.instagram.com/_.prxveen._01?igsh=bXN0cDFnNzd3MTI2">
