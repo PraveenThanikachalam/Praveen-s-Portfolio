@@ -143,7 +143,10 @@ export default function Home() {
                   <br />
                   <span className="text-6xl  text-orange-100"> Praveen</span>
                   <br />
-                  <span className="text-2xl  text-orange-100"> Robotics and Software DEV</span>
+                  <span className="text-2xl  text-orange-100">
+                    {" "}
+                    Robotics and Software DEV
+                  </span>
                 </div>
               </div>
             </EntryRight>
@@ -154,7 +157,10 @@ export default function Home() {
       <EntryTop>
         <div className="  text-orange-100 divider">Skills</div>
       </EntryTop>
-      <section className="sm:p-1p-10 md:p-0 overflow-scroll" id="skills">
+      <section
+        className="sm:p-1p-10 md:p-0 sm:overflow-scroll md:overflow-hidden"
+        id="skills"
+      >
         <EntryBottom>
           <div className="mockup-code">
             <pre data-prefix="$">
@@ -290,7 +296,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:p-2 justify-center items-center gap-3 flip-card-back">
               <p className="  title">Tech stack</p>
-              <p className="  overflow-scroll text-zinc-100">
+              <p className="  sm:overflow-scroll md:overflow-hidden text-zinc-100">
                 Next_14, Typescript, NextAuth, Shadcn, Tailwindcss, Prisma,
                 Mongodb
               </p>
@@ -316,7 +322,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:p-2 justify-center items-center gap-3 flip-card-back">
               <p className="title">Tech stack</p>
-              <p className="  overflow-scroll text-zinc-100">
+              <p className="   sm:overflow-scroll md:overflow-hidden text-zinc-100">
                 EJS, Javascript, CSS, Bootstrap, JokeApi
               </p>
               <a className=" bg-black p-2 rounded-lg" href="github.com">
