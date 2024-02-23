@@ -39,7 +39,7 @@ export default function Navbar() {
     <motion.div
       className={`${
         colorChange ? "transition ease-in duration-0.5 bg-black/75" : "bg-none"
-      } flex justify-center  p-4 sm:overflow-scroll md:overflow-hidden  w-full absolute items-center space-x-1`}
+      } flex justify-center  p-4  overflow-hidden  w-full absolute items-center space-x-1`}
     >
       {links.map((link) => (
         <Link

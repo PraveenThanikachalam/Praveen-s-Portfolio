@@ -158,7 +158,7 @@ export default function Home() {
         <div className="  text-orange-100 divider">Skills</div>
       </EntryTop>
       <section
-        className="sm:p-1p-10 md:p-0 sm:overflow-scroll md:overflow-hidden"
+        className="sm:p-1 p-10 md:p-0 overflow-hidden"
         id="skills"
       >
         <EntryBottom>
