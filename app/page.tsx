@@ -300,7 +300,7 @@ export default function Home() {
                 Next_14, Typescript, NextAuth, Shadcn, Tailwindcss, Prisma,
                 Mongodb
               </p>
-              <a className="bg-black p-2 rounded-lg" href="github.com">
+              <a className="bg-black p-2 rounded-lg" href="https://github.com/PraveenThanikachalam/mmdApp.git">
                 {" "}
                 <Github />
               </a>
@@ -325,7 +325,7 @@ export default function Home() {
               <p className="   sm:overflow-scroll md:overflow-hidden text-zinc-100">
                 EJS, Javascript, CSS, Bootstrap, JokeApi
               </p>
-              <a className=" bg-black p-2 rounded-lg" href="github.com">
+              <a className=" bg-black p-2 rounded-lg" href="https://github.com/PraveenThanikachalam/JokeAPI_WebApp.git">
                 {" "}
                 <Github />
               </a>
