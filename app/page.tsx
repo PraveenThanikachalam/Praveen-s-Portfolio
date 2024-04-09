@@ -182,7 +182,7 @@ export default function Home() {
 
           <div className="mockup-code">
             <pre data-prefix="$">
-              <code className="underline underline-offset-4"> </code>
+              <code className="underline underline-offset-4">Frontend</code>
             </pre>
             <pre data-prefix=">" className="mt-1 text-orange-400">
               <code>HTML</code>
