@@ -63,7 +63,7 @@ export default function Home() {
         },
       });
       redirect(
-        "https://drive.google.com/file/d/1ApHDMvLxWcioESqJ7WKL6BQUnIKhTW2y/view?usp=sharing"
+        "https://drive.google.com/file/d/1-xsK3O6Ev1AoLUbY4yfEIAGPoeGtTOSM/view?usp=sharing"
       );
     }
   };
