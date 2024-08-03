@@ -63,7 +63,7 @@ export default function Home() {
         },
       });
       redirect(
-        "https://drive.google.com/file/d/1s_XjRhEKlySckIEXmoTYeIovJuOygsbP/view?usp=sharing"
+        "https://drive.google.com/file/d/1Aohoootubrw8-BUPHVrYlq3C2xC7ybkO/view?usp=sharing"
       );
     }
   };
@@ -98,7 +98,7 @@ export default function Home() {
                   />
                   <button type="submit" className="btn w-full btn-outline ">
                     {" "}
-                    <a href="https://drive.google.com/file/d/1KPeTFk61Bk2bD6S8qkKHkViwUEYckO_S/view?usp=sharing">
+                    <a href="https://drive.google.com/file/d/1Aohoootubrw8-BUPHVrYlq3C2xC7ybkO/view?usp=sharing">
                       Submit{" "}
                     </a>
                   </button>
